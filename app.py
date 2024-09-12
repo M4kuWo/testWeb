@@ -1,26 +1,31 @@
-from flask import Flask
 from flask_cors import CORS
+
 
 app = Flask(__name__)
 CORS(app)
 
-array =[]
+
+categories =[
+    {"catid":1,"desc":"meat"},
+    {"catid":2,"desc":"dairyyyyyyyyy"},
+    {"catid":3,"desc":"bakery"}]
+
 
 @app.route('/')
 def home():
     return 'Hello, World!'
 
-@app.route('/test1')
-def test1():
-    return 'Hello, test1!'
 
-@app.route('/test2')
-def test2():
-    return 'Hello, test2!'
+@app.route('/categories')
+def get_categories():
+    return categories
 
-@app.route('/test3')
-def test3():
-    return 'Hello, test3!'
+
+
+
+@app.route('/test')
+def test():
+    return 'Hello, test!'
 
 
 if __name__ == '__main__':
